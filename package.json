@@ -1,5 +1,5 @@
 {
-  "name": "simple-react-hooks",
+  "name": "simple-react-hooks-utility",
   "version": "1.0.0",
   "description": "Uitlity of Simple React hooks",
   "main": "dist/index.js",
