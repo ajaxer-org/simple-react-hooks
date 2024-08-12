@@ -1,0 +1,40 @@
+name: Publish to npm
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+          cache: "npm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the package
+        run: npm run build
+
+      - name: Npm Pack
+        run: npm pack
+
+      - name: Publish to npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Upload npm logs
+        if: failure() # Only upload logs if the previous step fails
+        uses: actions/upload-artifact@v3
+        with:
+          name: npm-logs
+          path: /home/runner/.npm/_logs/
