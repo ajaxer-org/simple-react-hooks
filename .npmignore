@@ -1,0 +1,24 @@
+# Ignore node_modules (not necessary as it's ignored by default)
+node_modules
+
+# Ignore build scripts
+scripts/
+
+# Ignore configuration files
+tsconfig.json
+.eslintrc.js
+.prettierrc
+
+# Ignore test files
+tests/
+*.test.js
+
+# Ignore GitHub workflows
+.github/
+
+# Ignore other unnecessary files
+.npmignore
+.gitignore
+.vscode/
+
+simple-react-hooks-utility-*.tgz
