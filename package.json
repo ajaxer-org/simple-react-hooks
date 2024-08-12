@@ -1,6 +1,6 @@
 {
   "name": "simple-react-hooks-utility",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Uitlity of Simple React hooks",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,7 +12,11 @@
   "scripts": {
     "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "react",
+    "hooks",
+    "utility"
+  ],
+  "author": "ajaxer-org",
+  "license": "unlicense"
 }
