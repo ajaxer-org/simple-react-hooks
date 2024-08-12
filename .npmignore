@@ -21,4 +21,5 @@ tests/
 .gitignore
 .vscode/
 
+src/
 simple-react-hooks-utility-*.tgz
