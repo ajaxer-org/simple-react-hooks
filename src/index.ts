@@ -7,6 +7,7 @@ export function useLocalStorage<T>(key: string, initialValue: T | null): [T, (va
     if (localData !== null) return JSON.parse(localData);
 
     if (initialValue !== null) return JSON.parse(JSON.stringify(initialValue));
+
     return null;
   });
 
@@ -17,7 +18,7 @@ export function useLocalStorage<T>(key: string, initialValue: T | null): [T, (va
   return [value, setValue];
 }
 
-export function useDarkMode() {
+export function useDarkMode(): [boolean, (value: boolean) => void] {
   const [darkMode, setDarkMode] = useLocalStorage(
     "darkModeEnabled",
     window.matchMedia("(prefers-color-scheme: dark)").matches
