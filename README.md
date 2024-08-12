@@ -1,5 +1,4 @@
-# simple-react-hooks
-Uitlity Simple React hooks
+# Simple React Hooks Uitlity
 
 
 ### useLocalStorage
