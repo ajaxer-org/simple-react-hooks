@@ -1,6 +1,6 @@
 {
   "name": "simple-react-hooks-utility",
-  "version": "1.1",
+  "version": "1.1.0",
   "description": "Uitlity of Simple React hooks",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
