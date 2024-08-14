@@ -6,21 +6,22 @@
 
 #### useLocalStorage
 ```javascript
-import useLocalStorage from "./hooks/useLocalStorage";
+import { useLocalStorage } from 'simple-react-hooks-utility'
 
 const [storedValue, setStoredValue] = useLocalStorage('key', 'default');
 ```
 
 #### useDarkMode
 ```javascript
-import useDarkMode from "./hooks/useDarkMode";
+import { useDarkMode } from 'simple-react-hooks-utility'
+import  from "./hooks/useDarkMode";
 
 const [theme, toggleTheme] = useDarkMode();
 ```
 
 #### useObjectState
 ```javascript
-import useObjectState from "./hooks/useObjectState";
+import { useObjectState } from 'simple-react-hooks-utility'
 
 const [state, setState] = useObjectState({ key1: 'value1', key2: 'value2' });
 
