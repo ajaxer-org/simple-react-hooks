@@ -4,12 +4,25 @@
 
 ---
 
-### useLocalStorage
+#### useLocalStorage
 ```javascript
-const [darkModeEnabled, setDarkModeEnabled] = useLocalStorage("darkModeEnabled", true);
+import useLocalStorage from "./hooks/useLocalStorage";
+
+const [storedValue, setStoredValue] = useLocalStorage('key', 'default');
 ```
 
-### useDarkMode
+#### useDarkMode
 ```javascript
-const [darkMode, setDarkMode] = useDarkMode();
+import useDarkMode from "./hooks/useDarkMode";
+
+const [theme, toggleTheme] = useDarkMode();
+```
+
+#### useObjectState
+```javascript
+import useObjectState from "./hooks/useObjectState";
+
+const [state, setState] = useObjectState({ key1: 'value1', key2: 'value2' });
+
+setState({key2: 'new-value2'})
 ```
