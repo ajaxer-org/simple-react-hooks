@@ -25,6 +25,29 @@ const DarkModeToggle = () => {
 
 
 
+#### useDebounce
+A custom React hook to debounce a value.  
+This hook returns a debounced version of the input value. The debounced value will only update after a specified delay, avoiding excessive updates or API calls.
+
+``` typescript
+import { useDebounce } from 'simple-react-hooks-utility'
+
+const DebouncedInput = () => {
+
+    const [inputValue, setInputValue] = useState("");
+    const debouncedValue = useDebounce(inputValue, 500);
+
+    useEffect(() => {
+      // Perform an action with the debounced value (e.g., API call)
+      console.log(debouncedValue);
+    }, [debouncedValue]);
+
+    return <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />;
+};
+```
+
+
+
 #### useFetch
 A custom React hook to fetch data from a given URL.
 
