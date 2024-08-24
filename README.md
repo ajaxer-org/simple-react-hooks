@@ -11,17 +11,15 @@ A custom React hook to manage dark mode state using localStorage.
 import { useDarkMode } from 'simple-react-hooks-utility'
 
 const DarkModeToggle = () => {
-  const [darkMode, setDarkMode] = useDarkMode();
+    const [darkMode, setDarkMode] = useDarkMode();
 
-  const toggleDarkMode = () => setDarkMode(!darkMode);
+    const toggleDarkMode = () => setDarkMode(!darkMode);
 
-  return (
-    <div>
-      <button onClick={toggleDarkMode}>
-        {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-      </button>
-    </div>
-  );
+    return (
+      <div>
+        <button onClick={toggleDarkMode}>{darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}</button>
+      </div>
+    );
 };
 ```
 
@@ -44,19 +42,19 @@ useLocalStorage - A custom React hook to manage state with localStorage.
 ``` typescript
 import { useLocalStorage } from 'simple-react-hooks-utility'
 
-// Component to use localStorage for a count value
 const Counter = () => {
-  const [count, setCount] = useLocalStorage<number>('count', 0);
- 
- const increment = () => setCount(count + 1);
- 
- return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={increment}>Increment</button>
-    </div>
-  );
-};
+
+    const [count, setCount] = useLocalStorage<number>("count", 0);
+
+    const increment = () => setCount(count + 1);
+
+    return (
+      <div>
+        <p>Count: {count}</p>
+        <button onClick={increment}>Increment</button>
+      </div>
+    );
+  };
 ```
 
 
@@ -73,11 +71,11 @@ const ExampleComponent = () => {
     const incrementCount = () => {
       updateState({ count: state.count + 1 });
     };
-    
+
     const updateName = (name: string) => {
       updateState({ name });
     };
-    
+
     return (
       <div>
         <p>Count: {state.count}</p>
@@ -97,17 +95,18 @@ A custom React hook to manage query parameters in the URL.
 import { useQueryParam } from 'simple-react-hooks-utility'
 
 const ExampleComponent = () => {
-  const [queryParam, setQueryParam] = useQueryParam('myParam');
+    
+    const [queryParam, setQueryParam] = useQueryParam("myParam");
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQueryParam(event.target.value);
-  };
-  
-  return (
-    <div>
-      <input type="text" value={queryParam ?? ''} onChange={handleChange} />
-      <p>Current Value: {queryParam}</p>
-    </div>
-  );
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setQueryParam(event.target.value);
+    };
+
+    return (
+      <div>
+        <input type="text" value={queryParam ?? ""} onChange={handleChange} />
+        <p>Current Value: {queryParam}</p>
+      </div>
+    );
 };
 ```
