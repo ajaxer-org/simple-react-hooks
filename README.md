@@ -19,15 +19,28 @@ A custom React hook to fetch data from a given URL.
 import { useFetch } from 'simple-react-hooks-utility'
 
 const { data, error, loading, statusCode } = useFetch<ResponseType>('https://api.myserver.com');
- 
 ```
 
 
 #### useLocalStorage
-```javascript
+useLocalStorage - A custom React hook to manage state with localStorage.
+
+``` typescript
 import { useLocalStorage } from 'simple-react-hooks-utility'
 
-const [storedValue, setStoredValue] = useLocalStorage('key', 'default');
+// Component to use localStorage for a count value
+const Counter = () => {
+  const [count, setCount] = useLocalStorage<number>('count', 0);
+ 
+ const increment = () => setCount(count + 1);
+ 
+ return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+};
 ```
 
 
