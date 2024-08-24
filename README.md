@@ -4,6 +4,25 @@
 
 ---
 
+#### useDarkMode
+```javascript
+import { useDarkMode } from 'simple-react-hooks-utility'
+
+const [theme, toggleTheme] = useDarkMode();
+```
+
+
+#### useFetch
+A custom React hook to fetch data from a given URL.
+
+```javascript
+import { useFetch } from 'simple-react-hooks-utility'
+
+const { data, error, loading, statusCode } = useFetch<ResponseType>('https://api.myserver.com');
+ 
+```
+
+
 #### useLocalStorage
 ```javascript
 import { useLocalStorage } from 'simple-react-hooks-utility'
@@ -11,13 +30,7 @@ import { useLocalStorage } from 'simple-react-hooks-utility'
 const [storedValue, setStoredValue] = useLocalStorage('key', 'default');
 ```
 
-#### useDarkMode
-```javascript
-import { useDarkMode } from 'simple-react-hooks-utility'
-import  from "./hooks/useDarkMode";
 
-const [theme, toggleTheme] = useDarkMode();
-```
 
 #### useObjectState
 ```javascript
@@ -26,4 +39,28 @@ import { useObjectState } from 'simple-react-hooks-utility'
 const [state, setState] = useObjectState({ key1: 'value1', key2: 'value2' });
 
 setState({key2: 'new-value2'})
+```
+
+
+
+#### useQueryParam
+A custom React hook to manage query parameters in the URL.
+
+``` typescript
+import { useQueryParam } from 'simple-react-hooks-utility'
+
+const ExampleComponent = () => {
+  const [queryParam, setQueryParam] = useQueryParam('myParam');
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQueryParam(event.target.value);
+  };
+  
+  return (
+    <div>
+      <input type="text" value={queryParam ?? ''} onChange={handleChange} />
+      <p>Current Value: {queryParam}</p>
+    </div>
+  );
+};
 ```
