@@ -111,6 +111,28 @@ const ExampleComponent = () => {
 
 
 
+#### usePrevious
+A custom React hook to manage query parameters in the URL.
+
+``` typescript
+import { useQueryParam } from 'simple-react-hooks-utility'
+
+const CounterComponent = () => {
+    const [count, setCount] = useState(0);
+    const previousCount = usePrevious(count);
+
+    return (
+      <div>
+        <p>Current Count: {count}</p>
+        <p>Previous Count: {previousCount}</p>
+        <button onClick={() => setCount(count + 1)}>Increment</button>
+      </div>
+    );
+};
+```
+
+
+
 #### useQueryParam
 A custom React hook to manage query parameters in the URL.
 
