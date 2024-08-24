@@ -40,3 +40,27 @@ const [state, setState] = useObjectState({ key1: 'value1', key2: 'value2' });
 
 setState({key2: 'new-value2'})
 ```
+
+
+
+#### useQueryParam
+A custom React hook to manage query parameters in the URL.
+
+``` typescript
+import { useQueryParam } from 'simple-react-hooks-utility'
+
+const ExampleComponent = () => {
+  const [queryParam, setQueryParam] = useQueryParam('myParam');
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQueryParam(event.target.value);
+  };
+  
+  return (
+    <div>
+      <input type="text" value={queryParam ?? ''} onChange={handleChange} />
+      <p>Current Value: {queryParam}</p>
+    </div>
+  );
+};
+```
