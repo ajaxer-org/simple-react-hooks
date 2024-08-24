@@ -5,11 +5,26 @@
 ---
 
 #### useDarkMode
-```javascript
+A custom React hook to manage dark mode state using localStorage.
+
+``` typescript
 import { useDarkMode } from 'simple-react-hooks-utility'
 
-const [theme, toggleTheme] = useDarkMode();
+const DarkModeToggle = () => {
+  const [darkMode, setDarkMode] = useDarkMode();
+
+  const toggleDarkMode = () => setDarkMode(!darkMode);
+
+  return (
+    <div>
+      <button onClick={toggleDarkMode}>
+        {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+      </button>
+    </div>
+  );
+};
 ```
+
 
 
 #### useFetch
@@ -20,6 +35,7 @@ import { useFetch } from 'simple-react-hooks-utility'
 
 const { data, error, loading, statusCode } = useFetch<ResponseType>('https://api.myserver.com');
 ```
+
 
 
 #### useLocalStorage
