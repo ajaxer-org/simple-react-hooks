@@ -1,5 +1,6 @@
-import useLocalStorage from "./hooks/useLocalStorage";
 import useDarkMode from "./hooks/useDarkMode";
+import useFetch from "./hooks/useFetch";
+import useLocalStorage from "./hooks/useLocalStorage";
 import useObjectState from "./hooks/useObjectState";
 
-export { useLocalStorage, useDarkMode, useObjectState };
+export { useDarkMode, useFetch, useLocalStorage, useObjectState };

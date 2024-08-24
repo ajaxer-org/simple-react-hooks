@@ -4,6 +4,25 @@
 
 ---
 
+#### useDarkMode
+```javascript
+import { useDarkMode } from 'simple-react-hooks-utility'
+
+const [theme, toggleTheme] = useDarkMode();
+```
+
+
+#### useFetch
+A custom React hook to fetch data from a given URL.
+
+```javascript
+import { useFetch } from 'simple-react-hooks-utility'
+
+const { data, error, loading, statusCode } = useFetch<ResponseType>('https://api.myserver.com');
+ 
+```
+
+
 #### useLocalStorage
 ```javascript
 import { useLocalStorage } from 'simple-react-hooks-utility'
@@ -11,13 +30,7 @@ import { useLocalStorage } from 'simple-react-hooks-utility'
 const [storedValue, setStoredValue] = useLocalStorage('key', 'default');
 ```
 
-#### useDarkMode
-```javascript
-import { useDarkMode } from 'simple-react-hooks-utility'
-import  from "./hooks/useDarkMode";
 
-const [theme, toggleTheme] = useDarkMode();
-```
 
 #### useObjectState
 ```javascript
