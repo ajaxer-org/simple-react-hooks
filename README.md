@@ -62,13 +62,31 @@ const Counter = () => {
 
 
 #### useObjectState
-```javascript
+A custom React hook to manage state as an object.
+
+``` typescript
 import { useObjectState } from 'simple-react-hooks-utility'
 
-const [state, setState] = useObjectState({ key1: 'value1', key2: 'value2' });
+const ExampleComponent = () => {
+    const [state, updateState] = useObjectState<{ count: number; name: string }>({ count: 0, name: "" });
 
-setState({key2: 'new-value2'})
-```
+    const incrementCount = () => {
+      updateState({ count: state.count + 1 });
+    };
+    
+    const updateName = (name: string) => {
+      updateState({ name });
+    };
+    
+    return (
+      <div>
+        <p>Count: {state.count}</p>
+        <button onClick={incrementCount}>Increment</button>
+        <input type="text" value={state.name} onChange={(e) => updateName(e.target.value)} />
+      </div>
+    );
+};
+ ```
 
 
 
