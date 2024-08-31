@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { useLocation, useHistory } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 /**
  * useQueryParam - A custom React hook to manage query parameters in the URL.
@@ -30,46 +29,33 @@ import { useLocation, useHistory } from "react-router-dom";
  *   );
  * };
  */
-export default function useQueryParam(param: string) {
-  const [value, setValue] = useState<string | null>(null);
-  const location = useLocation();
-  const history = useHistory();
 
-  /**
-   * Extracts the value of the specified query parameter from the URL
-   * and updates the `value` state.
-   */
-  useEffect(() => {
-    // Create a URLSearchParams object to work with query parameters
-    const searchParams = new URLSearchParams(location.search);
+/**
+ * Custom hook for getting and setting query parameters.
+ * @param key - The key of the query parameter to read or update.
+ * @returns [value, setValue] - The current value of the query parameter and a setter function to update it.
+ */
+export default function useQueryParam(key: string): [string | null, (value: string | null) => void] {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
-    // Update the state with the current value of the query parameter
-    setValue(searchParams.get(param));
-  }, [location.search, param]);
+  // Get the current value of the query parameter
+  const value = searchParams.get(key);
 
-  /**
-   * Updates the query parameter in the URL.
-   * If `newValue` is null, the query parameter is removed from the URL.
-   * Otherwise, the query parameter is updated with the new value.
-   *
-   * @param {string | null} newValue - The new value for the query parameter, or null to remove it.
-   */
-  const setQueryParam = (newValue: string | null) => {
-    // Create a URLSearchParams object to work with query parameters
-    const searchParams = new URLSearchParams(location.search);
+  // Function to set a new value for the query parameter
+  const setValue = (newValue: string | null) => {
+    // Create a new searchParams object to avoid mutating the original one
+    const newParams = new URLSearchParams(searchParams);
 
     if (newValue === null) {
-      // Remove the query parameter if newValue is null
-      searchParams.delete(param);
+      newParams.delete(key);
     } else {
-      // Update the query parameter with the new value
-      searchParams.set(param, newValue);
+      newParams.set(key, newValue);
     }
 
-    // Navigate to the updated URL with the new query parameter values
-    history.push(`${location.pathname}?${searchParams.toString()}`, { replace: true });
+    // Update the URL with the new search parameters
+    navigate(`?${newParams.toString()}`, { replace: true });
   };
 
-  // Return the current value of the query parameter and the function to update it
-  return [value, setQueryParam] as const;
+  return [value, setValue];
 }

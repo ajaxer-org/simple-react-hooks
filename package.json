@@ -1,20 +1,18 @@
 {
   "name": "simple-react-hooks-utility",
-  "version": "2.5.0",
+  "version": "2.6.2",
   "description": "Uitlity of Simple React hooks",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "devDependencies": {
     "@types/react": "^18.3.3",
-    "@types/react-router-dom": "^5.3.3",
     "react-router-dom": "^6.26.1",
     "typescript": "^5.5.4"
   },
   "peerDependencies": {
     "@types/react": "^18.3.3",
-    "@types/react-router-dom": "^5.3.3",
-    "react-router-dom": "^6.26.1",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "react-router-dom": "^6.26.1"
   },
   "scripts": {
     "build": "tsc"
